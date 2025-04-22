@@ -3,6 +3,12 @@
 # 设置错误处理
 set -e
 
+# 检查 Docker 是否运行
+if ! docker info > /dev/null 2>&1; then
+    echo "错误: Docker 未运行，请先启动 Docker Desktop"
+    exit 1
+fi
+
 # 检查参数
 if [ $# -gt 1 ]; then
     echo "Usage: $0 [version]"
@@ -11,9 +17,9 @@ if [ $# -gt 1 ]; then
 fi
 
 VERSION=${1}
-CORE_IMAGE="iheytang/openmanus-core:${VERSION}"
-WEB_IMAGE="iheytang/openmanus-web:${VERSION}"
-ALIYUN_REGISTRY="registry.cn-hangzhou.aliyuncs.com/iheytang"
+CORE_IMAGE="blueming3/aicraft-core:${VERSION}"
+WEB_IMAGE="blueming3/aicraft-web:${VERSION}"
+ALIYUN_REGISTRY="crpi-appxm8pdgvw49jw2.cn-hangzhou.personal.cr.aliyuncs.com/blueming3/aicraft"
 
 # Print build information
 echo "=============================================="
@@ -50,13 +56,13 @@ if [ $? -eq 0 ]; then
     echo "=============================================="
     echo "Tagging images for Aliyun registry..."
     echo "=============================================="
-    docker tag ${CORE_IMAGE} ${ALIYUN_REGISTRY}/openmanus-core:${VERSION}
-    docker tag ${WEB_IMAGE} ${ALIYUN_REGISTRY}/openmanus-web:${VERSION}
+    docker tag ${CORE_IMAGE} ${ALIYUN_REGISTRY}-core:${VERSION}
+    docker tag ${WEB_IMAGE} ${ALIYUN_REGISTRY}-web:${VERSION}
 
     echo "=============================================="
     echo "Images tagged successfully:"
-    echo "${ALIYUN_REGISTRY}/openmanus-core:${VERSION}"
-    echo "${ALIYUN_REGISTRY}/openmanus-web:${VERSION}"
+    echo "${ALIYUN_REGISTRY}-core:${VERSION}"
+    echo "${ALIYUN_REGISTRY}-web:${VERSION}"
     echo "=============================================="
 else
     echo "=============================================="
