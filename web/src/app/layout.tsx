@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'OpenManus',
-  description: 'No fortress, purely open ground. OpenManus is Coming.',
+  title: 'AiCraft',
+  description: 'Your AI-powered code agent. AiCraft is Here.',
 };
 
 export default function RootLayout({

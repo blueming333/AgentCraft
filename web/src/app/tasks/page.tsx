@@ -13,8 +13,8 @@ import { ChatInput } from '@/components/features/chat/input';
 
 const EmptyState = () => (
   <div className="flex h-full flex-col items-center justify-center opacity-50">
-    <Image src={logo} alt="OpenManus" className="mb-4 object-contain" width={240} height={240} />
-    <div>No fortress, purely open ground. OpenManus is Coming.</div>
+    <Image src={logo} alt="AiCraft" className="mb-4 object-contain" width={240} height={240} />
+    <div>智能化项目管理助手，为您的团队赋能。</div>
   </div>
 );
 

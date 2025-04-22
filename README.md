@@ -4,37 +4,32 @@
 
 中文 | [English](README-en.md)
 
-# 🎉 iHeyTang OpenManus
-
-Manus 非常棒，但 OpenManus 无需邀请码即可实现任何创意 🛫！
-
-(**特别是当他它有了非常出色的前端交互体验，简直太棒了！**)
+# 🎉 AiCraft - 智能化项目管理助手
 
 ## 项目愿景
 
-1. 通用领域全能 AI 助手，为 AI 时代的超级个体和一人公司提供最有力的支持
-2. 专精领域 AI 智能体的快速开发验证，为垂类 AI Agent 提供最好的效率平台
+AiCraft 致力于打造一个全流程智能化的项目管理系统，通过 AI 赋能实现：
 
-## 项目演示
-
-(没错，它拥有全流程回放能力，这使得你可以将一个的执行过程以几乎无损的方式分享)
-
-https://openmanus.iheytang.com/share/tasks/cm9k3hmiv00ezo8011k4008qx
+1. 自动根据用户需求生成详细、专业的项目文档
+2. 智能化生成订单，提高业务处理效率
+3. 自动派单给 AiCraft 团队成员，合理分配工作任务
+4. 全流程项目管理自动化，实时跟踪项目进度
+5. 为团队成员提供智能辅助，提高工作效率
 
 ## 项目特点
 
-1. 简洁优雅的操作界面 - 命令行？不存在的。
-2. 多组织、多用户支持 - 这个很棒，每个租户都可以配置自己的 APIKey
-3. 后台任务执行 - 提出问题，关掉页面，过会再回来看结果
-4. MCP 的快速集成 - MCP 市场快速安装，1 分钟内上手 MCP
-5. 以任务为分区的工作区 - 每一个任务的附件都能够单独浏览
-6. 多轮对话 - 任务完成的不好？再继续追问
+1. 简洁优雅的操作界面 - 直观易用，无需复杂操作
+2. 多组织、多用户支持 - 每个团队都可配置自己的 APIKey 和工作流
+3. 后台任务执行 - 提出需求，系统自动处理，随时查看结果
+4. MCP 的快速集成 - 快速安装各类插件，扩展系统功能
+5. 以任务为分区的工作区 - 项目文档和资源集中管理
+6. 多轮对话 - 持续优化需求，直到满足客户要求
 
 ## 安装指南
 
 该项目分为两个部分，分别是 Core (根目录) 和 App (web/)
 
-### OpenManus Core
+### AiCraft Core
 
 1. 安装 uv（一个快速的 Python 包管理器）：
 
@@ -45,8 +40,8 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 2. 克隆仓库：
 
 ```bash
-git clone https://github.com/iHeyTang/OpenManus.git
-cd OpenManus
+git clone https://github.com/blueming333/AgentCraft.git
+cd AgentCraft
 ```
 
 3. 创建并激活虚拟环境：
@@ -80,7 +75,7 @@ playwright install
 
 5. 安装 Docker 环境，windows 推荐 [Docker Desktop](https://www.docker.com/products/docker-desktop/)，MacOS 或 Linux 推荐 [Orbstack](https://orbstack.dev/download)
 
-### OpenManus App
+### AiCraft App
 
 1. 安装 `node` 环境
 
@@ -126,8 +121,8 @@ npm run generate-keys
 项目使用 PostgreSQL 作为持久化数据库。可使用 [Docker 容器](https://hub.docker.com/_/postgres) 来启动数据库服务
 
 ```bash
-# 启动 docker 容器 并自动创建 名为 openmanus 的数据库
-docker run --name openmanus-db -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=openmanus -d -p 5432:5432 postgres
+# 启动 docker 容器 并自动创建 名为 aicraft 的数据库
+docker run --name aicraft-db -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=aicraft -d -p 5432:5432 postgres
 ```
 
 6. 环境变量配置
@@ -136,7 +131,7 @@ docker run --name openmanus-db -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=po
 
 ```bash
 # 若按照 步骤 5 配置数据库，则数据库连接为
-DATABASE_URL="postgresql://postgres:postgres@localhost:5432/openmanus?schema=public"
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/aicraft?schema=public"
 ```
 
 7. 生成 Prisma 客户端 & 初始化数据库
@@ -152,18 +147,22 @@ npx prisma db push
 ## 快速启动
 
 ```bash
-# OpenManus Core 使用 run_api.py 启动
+# AiCraft Core 使用 run_api.py 启动
 python run_api.py
 ```
 
 ```bash
-# OpenManus App 需要进入 web/ 目录， 使用 npm run dev 启动
+# AiCraft App 需要进入 web/ 目录， 使用 npm run dev 启动
 cd web
 npm run dev
 ```
 
 启动完毕后，打开 `http://localhost:3000` 即可查看
 
-## 致谢
+## 使用场景
 
-本项目起源于 [OpenManus](https://github.com/mannaandpoem/OpenManus) First Hackathon，非常感谢 OpenManus 提供这样的一个平台，得以让本项目有了落地的机会!
+1. 客户需求收集与文档生成 - 通过对话式交互收集客户需求，自动生成规范的项目文档
+2. 智能订单管理 - 根据客户需求自动生成订单，包含详细的工作内容和预算
+3. 智能派单系统 - 依据团队成员专长和工作负载自动分配任务
+4. 项目进度跟踪 - 实时监控项目进度，自动提醒关键节点
+5. 团队协作优化 - 智能整合团队资源，提高工作效率

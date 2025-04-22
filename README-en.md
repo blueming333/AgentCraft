@@ -45,7 +45,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 2. Clone the repository:
 
 ```bash
-git clone https://github.com/iHeyTang/OpenManus.git
+git clone https://github.com/blueming333/AgentCraft#.git
 cd OpenManus
 ```
 
